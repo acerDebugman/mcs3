@@ -1,9 +1,10 @@
 [package]
 name = "rust-s3"
-version = "0.33.0"
+version = "0.1.1"
 description = "Rust library for working with AWS S3 and compatible object storage APIs"
-keywords = ["S3", "Wasabi", "Minio", "GCP", "R2"]
-edition = "2018"
+edition = "2021"
+license = "GPLv3.0"
+
 
 [lib]
 name = "s3"
