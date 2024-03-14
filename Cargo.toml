@@ -1,0 +1,73 @@
+[package]
+name = "rust-s3"
+version = "0.33.0"
+description = "Rust library for working with AWS S3 and compatible object storage APIs"
+keywords = ["S3", "Wasabi", "Minio", "GCP", "R2"]
+edition = "2018"
+
+[lib]
+name = "s3"
+path = "src/lib.rs"
+
+[dependencies]
+async-std = { version = "1", optional = true }
+async-trait = "0.1"
+attohttpc = { version = "0.22", optional = true, default-features = false }
+aws-creds = { version = "0.34.1", default-features = false }
+aws-region = "0.25.1"
+base64 = "0.13"
+cfg-if = "1"
+time = { version = "^0.3.6", features = ["formatting", "macros"] }
+futures = { version = "0.3", optional = true }
+futures-io = { version = "0.3", optional = true }
+futures-util = { version = "0.3", optional = true, features = ["io"] }
+hex = "0.4"
+hmac = "0.12"
+http = "0.2"
+log = "0.4"
+maybe-async = { version = "0.2" }
+md5 = "0.7"
+percent-encoding = "2"
+reqwest = { version = "0.11", default-features = false, features = [
+    "json",
+    "stream",
+], optional = true }
+serde = "1"
+serde_derive = "1"
+quick-xml = { version = "0.26.0", features = [ "serialize" ] }
+sha2 = "0.10"
+thiserror = "1"
+surf = { version = "2", optional = true, default-features = false, features = [
+    "h1-client-rustls",
+] }
+tokio = { version = "1", features = [
+    "io-util",
+], optional = true, default-features = false }
+tokio-stream = { version = "0.1", optional = true }
+url = "2"
+minidom = { version = "0.15", optional = true }
+bytes = { version = "1" }
+block_on_proc = { version = "0.2", optional = true }
+
+[features]
+default = ["tags", "tokio-native-tls", "fail-on-err"]
+with-tokio = ["reqwest", "tokio", "tokio/fs", "tokio-stream", "futures"]
+async-std-native-tls = ["with-async-std", "aws-creds/native-tls"]
+with-async-std = ["async-std", "surf", "futures-io", "futures-util", "futures"]
+sync = ["attohttpc", "maybe-async/is_sync"]
+no-verify-ssl = []
+fail-on-err = []
+tokio-native-tls = ["with-tokio", "reqwest/native-tls", "aws-creds/native-tls"]
+tokio-rustls-tls = ["with-tokio", "reqwest/rustls-tls", "aws-creds/rustls-tls"]
+sync-native-tls = ["sync", "aws-creds/native-tls", "attohttpc/tls"]
+sync-native-tls-vendored = [ "sync", "aws-creds/native-tls-vendored", "attohttpc/tls-vendored" ]
+sync-rustls-tls = ["sync", "aws-creds/rustls-tls", "attohttpc/tls-rustls"]
+blocking = ["block_on_proc", "tokio/rt", "tokio/rt-multi-thread"]
+tags = ["minidom"]
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt", "rt-multi-thread", "macros", "fs"] }
+async-std = { version = "1", features = ["attributes"] }
+uuid = { version = "1", features = ["v4"] }
+env_logger = "0.9"
+anyhow = "1"
