@@ -1389,6 +1389,46 @@ dependencies = [
 ]
 
 [[package]]
+name = "mcs3"
+version = "0.1.1"
+dependencies = [
+ "anyhow",
+ "async-std",
+ "async-trait",
+ "attohttpc",
+ "aws-creds",
+ "aws-region",
+ "base64 0.13.1",
+ "block_on_proc",
+ "bytes",
+ "cfg-if",
+ "env_logger",
+ "futures",
+ "futures-io",
+ "futures-util",
+ "hex",
+ "hmac 0.12.1",
+ "http",
+ "log",
+ "maybe-async",
+ "md5",
+ "minidom",
+ "percent-encoding",
+ "quick-xml",
+ "reqwest",
+ "serde",
+ "serde_derive",
+ "sha2 0.10.8",
+ "surf",
+ "thiserror",
+ "time 0.3.34",
+ "tokio",
+ "tokio-stream",
+ "url",
+ "uuid",
+]
+
+[[package]]
 name = "md5"
 version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1940,46 +1980,6 @@ checksum = "f6d5f2436026b4f6e79dc829837d467cc7e9a55ee40e750d716713540715a2df"
 dependencies = [
  "cfg-if",
  "ordered-multimap",
-]
-
-[[package]]
-name = "rust-s3"
-version = "0.1.1"
-dependencies = [
- "anyhow",
- "async-std",
- "async-trait",
- "attohttpc",
- "aws-creds",
- "aws-region",
- "base64 0.13.1",
- "block_on_proc",
- "bytes",
- "cfg-if",
- "env_logger",
- "futures",
- "futures-io",
- "futures-util",
- "hex",
- "hmac 0.12.1",
- "http",
- "log",
- "maybe-async",
- "md5",
- "minidom",
- "percent-encoding",
- "quick-xml",
- "reqwest",
- "serde",
- "serde_derive",
- "sha2 0.10.8",
- "surf",
- "thiserror",
- "time 0.3.34",
- "tokio",
- "tokio-stream",
- "url",
- "uuid",
 ]
 
 [[package]]
